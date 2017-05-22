@@ -105,8 +105,9 @@ _"config-response"_ message structure:
 - `contentType` (string, required) - content type of configuration, e.g.: json, protobuf.
 - `configId` (string, required) - unique identifier of endpoint configuration.
 - `statusCode` (number, required) - status code that holds meaningful information about the result of inbound message processing.
-- `reasonPhrase` (string, optional) - status code that holds meaningful information about the result of inbound message processing.
+- `reasonPhrase` (string, required) - status code that holds meaningful information about the result of inbound message processing.
 - `content` (byte[], optional) - content with configuration data.
+- `isApplied` (boolean, required) - shows if client has latest configuration (true if he does).
 
 Example:
 
@@ -124,7 +125,8 @@ Example:
   "reasonPhrase": "OK",
   "content": {
     "bytes": "d2FpdXJoM2pmbmxzZGtjdjg3eTg3b3cz"
-  }
+  },
+  "isApplied": true
 }
 ```
 
